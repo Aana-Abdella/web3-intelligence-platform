@@ -1,5 +1,6 @@
 🚀 Web3 Intelligence Platform
 Wallet Analytics • Portfolio • AI • Airdrops
+<img src="docs/images/social-preview.png" width="800">
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs)
 ![NestJS](https://img.shields.io/badge/NestJS-10-e0234e?logo=nestjs)
