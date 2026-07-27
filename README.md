@@ -1,4 +1,4 @@
-🚀 # Web3 Intelligence Platform
+🚀 Web3 Intelligence Platform
 Wallet Analytics • Portfolio • AI • Airdrops
 
 A production-ready Web3 analytics platform for wallet analysis, portfolio tracking, airdrop eligibility scoring, and risk assessment across multiple blockchains.
