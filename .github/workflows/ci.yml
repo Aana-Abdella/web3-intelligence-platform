@@ -6,44 +6,28 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
-  lint-and-build:
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: pnpm/action-setup@v4
         with:
           version: 9
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build shared packages
-        run: |
-          pnpm --filter @web3-intelligence/shared build
-          pnpm --filter @web3-intelligence/blockchain build
-
-      - name: Lint
-        run: pnpm lint
-
-      - name: Build backend
-        run: pnpm --filter @web3-intelligence/backend build
-
-      - name: Build frontend
-        run: pnpm --filter @web3-intelligence/frontend build
-        env:
-          NEXT_PUBLIC_API_URL: http://localhost:4000/api/v1
-          NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: ci-demo
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
 
   test:
+    name: Test
     runs-on: ubuntu-latest
-    needs: lint-and-build
     services:
       postgres:
         image: postgres:16-alpine
@@ -64,23 +48,56 @@ jobs:
           - 6379:6379
     steps:
       - uses: actions/checkout@v4
-
       - uses: pnpm/action-setup@v4
         with:
           version: 9
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
-
-      - run: pnpm install
-      - run: pnpm --filter @web3-intelligence/shared build
-      - run: pnpm --filter @web3-intelligence/blockchain build
-
-      - name: Run tests
-        run: pnpm test
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm db:generate
+      - run: pnpm test
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/web3_intelligence_test
           REDIS_URL: redis://localhost:6379
           JWT_SECRET: test-secret-key-for-ci-minimum-32-chars
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+        env:
+          NEXT_PUBLIC_API_URL: http://localhost:4000/api/v1
+          NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: ci-demo
+
+  docker:
+    name: Docker
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/Dockerfile.frontend
+          push: false
+          tags: web3-intelligence-frontend:ci
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/Dockerfile.backend
+          push: false
+          tags: web3-intelligence-backend:ci

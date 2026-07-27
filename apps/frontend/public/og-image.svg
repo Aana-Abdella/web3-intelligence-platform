@@ -1,0 +1,22 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#07090f"/>
+  <path d="M0 90H1200M0 180H1200M0 270H1200M0 360H1200M0 450H1200M0 540H1200M150 0V630M300 0V630M450 0V630M600 0V630M750 0V630M900 0V630M1050 0V630" stroke="#1e293b" stroke-opacity=".45"/>
+  <rect x="84" y="84" width="1032" height="462" rx="18" fill="#0f141d" stroke="#263244"/>
+  <rect x="124" y="124" width="72" height="72" rx="14" fill="#123b3b" stroke="#22d3ee" stroke-opacity=".45"/>
+  <text x="160" y="169" text-anchor="middle" font-family="Inter, Arial" font-size="24" font-weight="700" fill="#22d3ee">W3</text>
+  <text x="124" y="260" font-family="Inter, Arial" font-size="68" font-weight="800" fill="#f8fafc">Web3 Intelligence</text>
+  <text x="124" y="320" font-family="Inter, Arial" font-size="30" fill="#94a3b8">Wallet analytics, portfolio tracking, airdrop research, and risk analysis</text>
+  <rect x="124" y="384" width="170" height="54" rx="10" fill="#22d3ee"/>
+  <text x="209" y="419" text-anchor="middle" font-family="Inter, Arial" font-size="18" font-weight="700" fill="#071014">Next.js</text>
+  <rect x="314" y="384" width="160" height="54" rx="10" fill="#34d399"/>
+  <text x="394" y="419" text-anchor="middle" font-family="Inter, Arial" font-size="18" font-weight="700" fill="#071014">NestJS</text>
+  <rect x="494" y="384" width="184" height="54" rx="10" fill="#f59e0b"/>
+  <text x="586" y="419" text-anchor="middle" font-family="Inter, Arial" font-size="18" font-weight="700" fill="#140b02">PostgreSQL</text>
+  <rect x="760" y="154" width="280" height="260" rx="14" fill="#07090f" stroke="#263244"/>
+  <rect x="792" y="194" width="212" height="22" rx="5" fill="#22d3ee"/>
+  <rect x="792" y="244" width="152" height="18" rx="5" fill="#34d399"/>
+  <rect x="792" y="290" width="188" height="18" rx="5" fill="#f59e0b"/>
+  <rect x="792" y="336" width="124" height="18" rx="5" fill="#f43f5e"/>
+  <circle cx="1010" cy="452" r="50" fill="#22d3ee" fill-opacity=".12" stroke="#22d3ee" stroke-opacity=".55"/>
+  <text x="1010" y="462" text-anchor="middle" font-family="Inter, Arial" font-size="24" font-weight="800" fill="#22d3ee">87</text>
+</svg>

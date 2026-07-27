@@ -2,12 +2,12 @@
 
 ## Prerequisites
 
-| Tool | Version | Purpose |
-|------|---------|---------|
-| Node.js | 20+ | Runtime |
-| pnpm | 9+ | Package manager |
-| Docker | 24+ | Local infrastructure |
-| Git | 2.40+ | Version control |
+| Tool    | Version | Purpose              |
+| ------- | ------- | -------------------- |
+| Node.js | 20+     | Runtime              |
+| pnpm    | 9+      | Package manager      |
+| Docker  | 24+     | Local infrastructure |
+| Git     | 2.40+   | Version control      |
 
 ## Step-by-Step Setup
 
@@ -75,6 +75,7 @@ pnpm dev
 ```
 
 This starts:
+
 - Frontend at http://localhost:3000
 - Backend at http://localhost:4000
 - Swagger at http://localhost:4000/docs
@@ -96,9 +97,9 @@ REDIS_URL=rediss://default:xxx@xxx.upstash.io:6379
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| `ECONNREFUSED` on DB | Ensure Docker containers are running: `docker ps` |
-| Prisma client not found | Run `pnpm db:generate` |
-| Port 3000/4000 in use | Change ports in `.env` or kill existing processes |
-| Redis connection failed | Caching degrades gracefully; API still works |
+| Issue                   | Solution                                          |
+| ----------------------- | ------------------------------------------------- |
+| `ECONNREFUSED` on DB    | Ensure Docker containers are running: `docker ps` |
+| Prisma client not found | Run `pnpm db:generate`                            |
+| Port 3000/4000 in use   | Change ports in `.env` or kill existing processes |
+| Redis connection failed | Caching degrades gracefully; API still works      |

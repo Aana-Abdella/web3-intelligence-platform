@@ -1,5 +1,11 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
-import { ChainId, CACHE_TTL, detectChain, isValidWalletAddress, normalizeAddress } from '@web3-intelligence/shared';
+import { Injectable, BadRequestException } from '@nestjs/common';
+import {
+  ChainId,
+  CACHE_TTL,
+  detectChain,
+  isValidWalletAddress,
+  normalizeAddress,
+} from '@web3-intelligence/shared';
 import { getWalletDataService } from '@web3-intelligence/blockchain';
 import { WalletRepository } from './wallet.repository';
 import { RedisService } from '@/infrastructure/cache/redis.service';

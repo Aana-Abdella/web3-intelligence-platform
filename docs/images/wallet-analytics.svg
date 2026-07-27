@@ -1,0 +1,22 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="900" fill="#07090f"/>
+  <text x="80" y="104" font-family="Inter, Arial" font-size="44" font-weight="800" fill="#f8fafc">Wallet Analytics</text>
+  <text x="80" y="148" font-family="Inter, Arial" font-size="22" fill="#94a3b8">Concept Preview - age, gas, protocol usage, heatmap, and network distribution</text>
+  <rect x="80" y="204" width="560" height="560" rx="16" fill="#0f141d" stroke="#263244"/>
+  <g fill="#22d3ee">
+    <rect x="126" y="250" width="30" height="30" rx="4" opacity=".2"/>
+    <rect x="166" y="250" width="30" height="30" rx="4" opacity=".5"/>
+    <rect x="206" y="250" width="30" height="30" rx="4" opacity=".9"/>
+    <rect x="246" y="250" width="30" height="30" rx="4" opacity=".35"/>
+    <rect x="286" y="250" width="30" height="30" rx="4" opacity=".7"/>
+    <rect x="326" y="250" width="30" height="30" rx="4" opacity=".4"/>
+  </g>
+  <path d="M126 644C210 590 278 620 350 540C426 456 504 490 592 386" stroke="#22d3ee" stroke-width="6" stroke-linecap="round"/>
+  <rect x="684" y="204" width="676" height="560" rx="16" fill="#0f141d" stroke="#263244"/>
+  <rect x="744" y="280" width="460" height="18" rx="6" fill="#22d3ee"/>
+  <rect x="744" y="358" width="384" height="18" rx="6" fill="#34d399"/>
+  <rect x="744" y="436" width="420" height="18" rx="6" fill="#f59e0b"/>
+  <rect x="744" y="514" width="320" height="18" rx="6" fill="#f43f5e"/>
+  <rect x="744" y="592" width="504" height="18" rx="6" fill="#a78bfa"/>
+  <text x="744" y="700" font-family="Inter, Arial" font-size="28" font-weight="700" fill="#f8fafc">Wallet score: 87/100</text>
+</svg>

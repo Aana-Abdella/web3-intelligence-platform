@@ -3,9 +3,7 @@
 import { formatUsd, formatCompact, truncateAddress } from '@web3-intelligence/shared';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import {
-  Wallet, TrendingUp, Clock, Coins, Image, Shield, Star, Activity, Fuel,
-} from 'lucide-react';
+import { Wallet, Clock, Coins, Shield, Star, Activity, Fuel } from 'lucide-react';
 import type { WalletOverview } from '@web3-intelligence/shared';
 
 interface StatCardProps {
@@ -27,7 +25,8 @@ function StatCard({ title, value, subtitle, icon, trend }: StatCardProps) {
             {subtitle && <p className="text-xs text-muted-foreground mt-1">{subtitle}</p>}
             {trend !== undefined && (
               <p className={`text-xs mt-1 ${trend >= 0 ? 'text-success' : 'text-destructive'}`}>
-                {trend >= 0 ? '+' : ''}{trend.toFixed(2)}%
+                {trend >= 0 ? '+' : ''}
+                {trend.toFixed(2)}%
               </p>
             )}
           </div>
@@ -48,9 +47,7 @@ export function WalletDashboard({ data }: WalletDashboardProps) {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">
-            {data.ensName ?? truncateAddress(data.address)}
-          </h1>
+          <h1 className="text-2xl font-bold">{data.ensName ?? truncateAddress(data.address)}</h1>
           <p className="text-muted-foreground font-mono text-sm">{data.address}</p>
           {data.labels.length > 0 && (
             <div className="flex gap-2 mt-2 flex-wrap">
@@ -76,7 +73,11 @@ export function WalletDashboard({ data }: WalletDashboardProps) {
         <StatCard
           title="Wallet Age"
           value={`${data.walletAgeDays} days`}
-          subtitle={data.firstActivityAt ? `Since ${new Date(data.firstActivityAt).toLocaleDateString()}` : undefined}
+          subtitle={
+            data.firstActivityAt
+              ? `Since ${new Date(data.firstActivityAt).toLocaleDateString()}`
+              : undefined
+          }
           icon={<Clock className="h-5 w-5" />}
         />
         <StatCard
@@ -104,7 +105,11 @@ export function WalletDashboard({ data }: WalletDashboardProps) {
               <Progress value={data.riskScore} className="flex-1" />
             </div>
             <p className="text-sm text-muted-foreground mt-2">
-              {data.riskScore <= 30 ? 'Low risk wallet' : data.riskScore <= 60 ? 'Moderate risk' : 'High risk — review recommended'}
+              {data.riskScore <= 30
+                ? 'Low risk wallet'
+                : data.riskScore <= 60
+                  ? 'Moderate risk'
+                  : 'High risk — review recommended'}
             </p>
           </CardContent>
         </Card>

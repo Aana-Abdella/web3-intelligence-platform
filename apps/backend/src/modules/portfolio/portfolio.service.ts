@@ -1,5 +1,11 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
-import { ChainId, CACHE_TTL, detectChain, isValidWalletAddress, normalizeAddress } from '@web3-intelligence/shared';
+import {
+  ChainId,
+  CACHE_TTL,
+  detectChain,
+  isValidWalletAddress,
+  normalizeAddress,
+} from '@web3-intelligence/shared';
 import { getWalletDataService } from '@web3-intelligence/blockchain';
 import { RedisService } from '@/infrastructure/cache/redis.service';
 import type { PortfolioSummary } from '@web3-intelligence/shared';
@@ -30,7 +36,9 @@ export class PortfolioService {
       async () => {
         const tokens = await this.walletDataService.getTokenBalances(normalized, resolvedChainId);
         const totalValueUsd = tokens.reduce((sum, t) => sum + (t.valueUsd ?? 0), 0);
-        const topAssets = [...tokens].sort((a, b) => (b.valueUsd ?? 0) - (a.valueUsd ?? 0)).slice(0, 5);
+        const topAssets = [...tokens]
+          .sort((a, b) => (b.valueUsd ?? 0) - (a.valueUsd ?? 0))
+          .slice(0, 5);
 
         return {
           totalValueUsd,

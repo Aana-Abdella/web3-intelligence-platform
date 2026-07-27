@@ -1,0 +1,17 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#07090f"/>
+  <rect x="56" y="44" width="1488" height="76" rx="14" fill="#0f141d" stroke="#263244"/>
+  <text x="96" y="92" font-family="Inter, Arial" font-size="24" font-weight="700" fill="#f8fafc">Desktop UI - Concept Preview</text>
+  <rect x="56" y="156" width="280" height="788" rx="16" fill="#0f141d" stroke="#263244"/>
+  <rect x="376" y="156" width="520" height="150" rx="16" fill="#0f141d" stroke="#263244"/>
+  <rect x="936" y="156" width="608" height="150" rx="16" fill="#0f141d" stroke="#263244"/>
+  <rect x="376" y="346" width="740" height="330" rx="16" fill="#0f141d" stroke="#263244"/>
+  <rect x="1156" y="346" width="388" height="330" rx="16" fill="#0f141d" stroke="#263244"/>
+  <rect x="376" y="716" width="1168" height="228" rx="16" fill="#0f141d" stroke="#263244"/>
+  <path d="M430 600C552 520 650 560 742 474C838 384 956 430 1070 368" stroke="#22d3ee" stroke-width="6" stroke-linecap="round"/>
+  <rect x="1208" y="418" width="248" height="18" rx="6" fill="#22d3ee"/>
+  <rect x="1208" y="492" width="190" height="18" rx="6" fill="#34d399"/>
+  <rect x="1208" y="566" width="282" height="18" rx="6" fill="#f59e0b"/>
+  <rect x="430" y="784" width="760" height="18" rx="6" fill="#f43f5e"/>
+  <rect x="430" y="842" width="620" height="18" rx="6" fill="#a78bfa"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="900" fill="#07090f"/>
+  <rect x="72" y="52" width="1296" height="72" rx="14" fill="#0f141d" stroke="#263244"/>
+  <text x="112" y="98" font-family="Inter, Arial" font-size="24" font-weight="700" fill="#22d3ee">W3 Intelligence</text>
+  <text x="126" y="252" font-family="Inter, Arial" font-size="70" font-weight="800" fill="#f8fafc">Web3 Intelligence Platform</text>
+  <text x="128" y="314" font-family="Inter, Arial" font-size="28" fill="#94a3b8">Concept Preview - product landing with wallet search and dashboard preview</text>
+  <rect x="128" y="376" width="640" height="70" rx="12" fill="#0f141d" stroke="#263244"/>
+  <text x="160" y="420" font-family="JetBrains Mono, monospace" font-size="20" fill="#64748b">0xd8da6bf26964af9d7eed9e03ae44754f960fc3f6</text>
+  <rect x="790" y="376" width="156" height="70" rx="12" fill="#22d3ee"/>
+  <text x="868" y="419" text-anchor="middle" font-family="Inter, Arial" font-size="20" font-weight="700" fill="#071014">Analyze</text>
+  <rect x="822" y="194" width="456" height="404" rx="18" fill="#0f141d" stroke="#263244"/>
+  <rect x="858" y="238" width="112" height="86" rx="12" fill="#111827" stroke="#263244"/>
+  <rect x="994" y="238" width="112" height="86" rx="12" fill="#111827" stroke="#263244"/>
+  <rect x="1130" y="238" width="112" height="86" rx="12" fill="#111827" stroke="#263244"/>
+  <path d="M868 516C918 458 967 470 1016 426C1060 386 1100 414 1150 354C1186 311 1218 328 1246 292" stroke="#22d3ee" stroke-width="6" stroke-linecap="round"/>
+  <rect x="128" y="688" width="1184" height="110" rx="18" fill="#0f141d" stroke="#263244"/>
+  <text x="168" y="752" font-family="Inter, Arial" font-size="24" fill="#f8fafc">Supported chains, roadmap, FAQ, and professional open-source positioning</text>
+</svg>

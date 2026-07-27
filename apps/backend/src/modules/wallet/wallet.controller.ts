@@ -10,7 +10,11 @@ export class WalletController {
 
   @Get('search')
   @ApiOperation({ summary: 'Search and analyze a wallet address' })
-  @ApiQuery({ name: 'address', required: true, example: '0xd8da6bf26964af9d7eed9e03ae44754f960fc3f6' })
+  @ApiQuery({
+    name: 'address',
+    required: true,
+    example: '0xd8da6bf26964af9d7eed9e03ae44754f960fc3f6',
+  })
   @ApiQuery({ name: 'chainId', required: false, type: Number })
   @ApiResponse({ status: 200, description: 'Wallet overview returned' })
   @ApiResponse({ status: 400, description: 'Invalid address' })

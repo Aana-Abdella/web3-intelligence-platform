@@ -26,14 +26,17 @@ export class AuthService {
       create: { walletAddress: normalized, nonce },
     });
 
-    return { nonce, message: `Sign this message to authenticate with Web3 Intelligence Platform.\n\nNonce: ${nonce}` };
+    return {
+      nonce,
+      message: `Sign this message to authenticate with Web3 Intelligence Platform.\n\nNonce: ${nonce}`,
+    };
   }
 
   /**
    * Verifies wallet signature and issues JWT token.
    * Production: implement full SIWE verification with viem/ethers.
    */
-  async verifySignature(walletAddress: string, signature: string) {
+  async verifySignature(walletAddress: string, _signature: string) {
     const normalized = walletAddress.toLowerCase();
     const user = await this.prisma.user.findUnique({ where: { walletAddress: normalized } });
 

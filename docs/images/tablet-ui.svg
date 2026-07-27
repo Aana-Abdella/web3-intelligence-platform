@@ -1,0 +1,15 @@
+<svg width="1024" height="768" viewBox="0 0 1024 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="768" fill="#07090f"/>
+  <rect x="48" y="40" width="928" height="68" rx="14" fill="#0f141d" stroke="#263244"/>
+  <text x="82" y="83" font-family="Inter, Arial" font-size="22" font-weight="700" fill="#f8fafc">Tablet UI - Concept Preview</text>
+  <rect x="48" y="140" width="928" height="76" rx="14" fill="#0f141d" stroke="#263244"/>
+  <rect x="48" y="248" width="286" height="130" rx="14" fill="#0f141d" stroke="#263244"/>
+  <rect x="370" y="248" width="286" height="130" rx="14" fill="#0f141d" stroke="#263244"/>
+  <rect x="692" y="248" width="284" height="130" rx="14" fill="#0f141d" stroke="#263244"/>
+  <rect x="48" y="412" width="586" height="250" rx="14" fill="#0f141d" stroke="#263244"/>
+  <rect x="668" y="412" width="308" height="250" rx="14" fill="#0f141d" stroke="#263244"/>
+  <path d="M90 600C174 540 244 568 314 500C382 434 476 470 590 440" stroke="#22d3ee" stroke-width="5" stroke-linecap="round"/>
+  <rect x="708" y="470" width="210" height="16" rx="6" fill="#34d399"/>
+  <rect x="708" y="526" width="166" height="16" rx="6" fill="#f59e0b"/>
+  <rect x="708" y="582" width="236" height="16" rx="6" fill="#f43f5e"/>
+</svg>

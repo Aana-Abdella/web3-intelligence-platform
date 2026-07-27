@@ -31,7 +31,11 @@ export class WalletDataService {
       : 0;
 
     const riskScore = this.calculateRiskScore(txCount, walletAgeDays);
-    const reputationScore = this.calculateReputationScore(txCount, walletAgeDays, portfolioValueUsd);
+    const reputationScore = this.calculateReputationScore(
+      txCount,
+      walletAgeDays,
+      portfolioValueUsd,
+    );
 
     return {
       address: normalizedAddress,

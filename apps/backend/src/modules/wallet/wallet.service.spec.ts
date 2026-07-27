@@ -41,8 +41,6 @@ describe('WalletService', () => {
   });
 
   it('should reject empty address', async () => {
-    await expect(service.searchWallet('')).rejects.toThrow(
-      'Invalid wallet address format',
-    );
+    await expect(service.searchWallet('')).rejects.toThrow('Invalid wallet address format');
   });
 });

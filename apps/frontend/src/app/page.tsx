@@ -3,217 +3,336 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  Search, Shield, Gift, BarChart3, Layers, Zap, Globe, ArrowRight,
-  CheckCircle, ChevronDown,
+  BarChart3,
+  Database,
+  GitBranch,
+  Layers,
+  Search,
+  Shield,
+  Sparkles,
+  Wallet,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { WalletSearchBar } from '@/components/wallet/wallet-search-bar';
 import { SUPPORTED_CHAINS } from '@web3-intelligence/shared';
+import { CHAIN_DISTRIBUTION, PLATFORM_METRICS, SAMPLE_WALLET_ADDRESS } from '@/lib/demo-data';
 
 const FEATURES = [
   {
     icon: Search,
-    title: 'Wallet Analytics',
-    description: 'Deep analysis of any wallet address across 8+ blockchains with real-time on-chain data.',
+    title: 'Wallet Intelligence',
+    description:
+      'Wallet age, transaction volume, gas spend, protocol diversity, and activity quality in one report.',
   },
   {
     icon: BarChart3,
-    title: 'Portfolio Tracking',
-    description: 'Track token balances, NFT holdings, and portfolio value with historical charts.',
-  },
-  {
-    icon: Gift,
-    title: 'Airdrop Eligibility',
-    description: 'Score your wallet for potential airdrops based on activity patterns and on-chain behavior.',
+    title: 'Portfolio Analytics',
+    description:
+      'Allocation, chain distribution, top holdings, and P/L views designed for repeat monitoring.',
   },
   {
     icon: Shield,
     title: 'Risk Analysis',
-    description: 'Detect scam tokens, honeypots, mixer exposure, and risky token approvals.',
+    description:
+      'Concept scanner for approvals, suspicious contracts, phishing exposure, and wallet hygiene.',
   },
   {
     icon: Layers,
-    title: 'DeFi Positions',
-    description: 'Track lending, borrowing, staking, and yield farming positions across protocols.',
+    title: 'Airdrop Research',
+    description:
+      'Eligibility factors, missing requirements, historical airdrop patterns, and future opportunity tracking.',
   },
   {
-    icon: Zap,
-    title: 'AI Insights',
-    description: 'AI-powered analysis of wallet behavior, spending patterns, and recommendations.',
+    icon: Database,
+    title: 'Clean API Layer',
+    description:
+      'NestJS modules, DTO validation, Prisma persistence, Redis caching, and Swagger documentation.',
   },
+  {
+    icon: Sparkles,
+    title: 'AI Insights',
+    description:
+      'Planned wallet summaries, behavioral explanations, portfolio suggestions, and risk narratives.',
+  },
+];
+
+const ROADMAP = [
+  'Production wallet and portfolio APIs',
+  'Risk engine and NFT metadata indexing',
+  'AI wallet insight generation',
+  'Enterprise workspaces and webhooks',
 ];
 
 const FAQ = [
   {
-    q: 'Which blockchains are supported?',
-    a: 'We support Ethereum, Base, Arbitrum, Optimism, Polygon, BNB Chain, Avalanche, and Solana, with more chains coming soon.',
+    q: 'Does this guarantee an airdrop?',
+    a: 'No. Eligibility estimates are based on public on-chain activity and do not guarantee qualification.',
   },
   {
-    q: 'Is my wallet data stored?',
-    a: 'We cache public on-chain data temporarily for performance. No private keys are ever accessed or stored.',
+    q: 'Which networks are supported?',
+    a: 'Ethereum, Base, Arbitrum, Optimism, Polygon, BNB Chain, Avalanche, and Solana are represented in the platform model.',
   },
   {
-    q: 'How is airdrop eligibility calculated?',
-    a: 'Our algorithm analyzes wallet age, transaction count, bridge usage, L2 activity, DeFi participation, and protocol diversity.',
+    q: 'Does the app require a private key?',
+    a: 'No. Wallet connection is handled through RainbowKit and the platform only reads public wallet activity.',
   },
   {
-    q: 'Is this free to use?',
-    a: 'Core features are free. Premium features including AI insights and API access will be available in future plans.',
+    q: 'Is every module live?',
+    a: 'Wallet, portfolio, auth, health, and airdrop APIs exist. Risk, NFT, transaction, and AI pages are clearly marked as concept or planned views.',
   },
 ];
 
 export default function LandingPage() {
   return (
     <div className="relative overflow-hidden">
-      {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center justify-center px-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-glow" />
+      <section className="relative min-h-[calc(100vh-4rem)] overflow-hidden border-b border-border/60">
+        <div className="surface-grid absolute inset-0 opacity-40" />
 
-        <div className="relative container mx-auto text-center max-w-4xl">
+        <div className="container relative mx-auto grid min-h-[calc(100vh-4rem)] items-center gap-10 px-4 py-16 lg:grid-cols-[0.95fr_1.05fr]">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-primary mb-6">
-              <Globe className="h-4 w-4" /> Multi-chain Web3 Intelligence
-            </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              Analyze Any Wallet{' '}
-              <span className="gradient-text">Across Blockchains</span>
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm text-primary">
+              <GitBranch className="h-4 w-4" />
+              Open-source Web3 analytics monorepo
+            </div>
+            <h1 className="text-4xl font-bold tracking-normal text-foreground sm:text-6xl lg:text-7xl">
+              Web3 Intelligence Platform
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-              Portfolio tracking, airdrop eligibility, risk analysis, and AI-powered insights —
-              all in one professional platform.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+              Multi-chain wallet intelligence, portfolio analytics, airdrop research, and risk
+              analysis for teams building serious Web3 tooling.
             </p>
+
+            <div className="mt-9 max-w-2xl">
+              <WalletSearchBar size="large" />
+            </div>
+
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <Button asChild size="lg">
+                <Link href="/dashboard">
+                  <Wallet className="h-4 w-4" />
+                  Launch Dashboard
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href={`/wallet/${SAMPLE_WALLET_ADDRESS}`}>
+                  <Search className="h-4 w-4" />
+                  View Sample Wallet
+                </Link>
+              </Button>
+            </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-2xl mx-auto mb-8"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative"
           >
-            <WalletSearchBar size="large" />
-          </motion.div>
+            <div className="rounded-lg border border-border bg-card/90 p-4 shadow-2xl shadow-black/30">
+              <div className="mb-4 flex items-center justify-between border-b border-border/70 pb-3">
+                <div>
+                  <p className="text-sm font-medium">Wallet command center</p>
+                  <p className="font-mono text-xs text-muted-foreground">0xd8da...c3f6</p>
+                </div>
+                <span className="rounded-md border border-success/30 bg-success/10 px-2 py-1 text-xs text-success">
+                  Live API ready
+                </span>
+              </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground"
-          >
-            {['8+ Chains', 'Real-time Data', 'No Wallet Required'].map((item) => (
-              <span key={item} className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 text-success" /> {item}
-              </span>
-            ))}
-          </motion.div>
-        </div>
+              <div className="grid gap-3 sm:grid-cols-3">
+                {[
+                  ['Portfolio', '$312.9K', '+12.4%'],
+                  ['Wallet score', '87/100', 'Healthy'],
+                  ['Airdrop fit', 'High', '4 gaps'],
+                ].map(([label, value, detail]) => (
+                  <div
+                    key={label}
+                    className="rounded-lg border border-border/70 bg-background/60 p-4"
+                  >
+                    <p className="text-xs text-muted-foreground">{label}</p>
+                    <p className="mt-2 text-2xl font-semibold">{value}</p>
+                    <p className="mt-1 text-xs text-primary">{detail}</p>
+                  </div>
+                ))}
+              </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-6 w-6 text-muted-foreground" />
+              <div className="mt-4 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+                <div className="rounded-lg border border-border/70 bg-background/60 p-4">
+                  <div className="mb-4 flex items-center justify-between">
+                    <p className="text-sm font-medium">Activity heatmap</p>
+                    <p className="text-xs text-muted-foreground">Last 12 weeks</p>
+                  </div>
+                  <div className="grid grid-cols-12 gap-1.5">
+                    {Array.from({ length: 84 }, (_, index) => {
+                      const opacity = ((index * 19) % 90) + 10;
+                      return (
+                        <span
+                          key={index}
+                          className="h-4 rounded-sm bg-primary"
+                          style={{ opacity: opacity / 100 }}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div className="rounded-lg border border-border/70 bg-background/60 p-4">
+                  <p className="mb-4 text-sm font-medium">Network mix</p>
+                  <div className="space-y-3">
+                    {CHAIN_DISTRIBUTION.slice(0, 4).map((chain) => (
+                      <div key={chain.name}>
+                        <div className="mb-1 flex items-center justify-between text-xs">
+                          <span className="text-muted-foreground">{chain.name}</span>
+                          <span>{chain.value}%</span>
+                        </div>
+                        <div className="h-2 rounded-full bg-secondary">
+                          <div
+                            className="h-2 rounded-full"
+                            style={{ width: `${chain.value}%`, backgroundColor: chain.color }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-24 px-4">
+      <section className="border-b border-border/60 bg-card/20 px-4 py-8">
+        <div className="container mx-auto grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {PLATFORM_METRICS.map((metric) => (
+            <div key={metric.label} className="rounded-lg border border-border/70 bg-card/60 p-4">
+              <p className="text-xs uppercase text-muted-foreground">{metric.label}</p>
+              <p className="mt-2 text-2xl font-semibold">{metric.value}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{metric.detail}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-4 py-20">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Powerful Features</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Everything you need to understand, track, and optimize your Web3 portfolio.
+          <div className="mb-10 max-w-2xl">
+            <p className="text-sm font-medium text-primary">Product surface</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-normal sm:text-4xl">
+              Built for wallet research workflows
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              The app separates implemented API capabilities from planned intelligence modules, so
+              contributors and users can see what works today.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {FEATURES.map((feature, i) => (
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {FEATURES.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: index * 0.04 }}
                 viewport={{ once: true }}
-                className="glass-hover rounded-xl p-6"
+                className="rounded-lg border border-border/70 bg-card/60 p-5"
               >
-                <div className="p-3 rounded-lg bg-primary/10 text-primary w-fit mb-4">
-                  <feature.icon className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm">{feature.description}</p>
+                <feature.icon className="h-5 w-5 text-primary" />
+                <h3 className="mt-4 text-lg font-semibold">{feature.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  {feature.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Chains */}
-      <section className="py-24 px-4 bg-card/30">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Supported Chains</h2>
-          <p className="text-muted-foreground mb-12">Analyze wallets across major blockchain networks</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {SUPPORTED_CHAINS.filter((c) => c.isActive).map((chain) => (
+      <section className="border-y border-border/60 bg-card/20 px-4 py-20">
+        <div className="container mx-auto grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <div>
+            <p className="text-sm font-medium text-primary">Supported chains</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-normal">Multi-chain by design</h2>
+            <p className="mt-4 text-muted-foreground">
+              Shared chain metadata powers both the API and frontend, keeping network names,
+              explorers, and native assets consistent across the stack.
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {SUPPORTED_CHAINS.filter((chain) => chain.isActive).map((chain) => (
               <div
                 key={chain.slug}
-                className="glass-hover px-6 py-3 rounded-xl flex items-center gap-3"
+                className="flex items-center justify-between rounded-lg border border-border/70 bg-background/60 p-4"
               >
-                <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold">
-                  {chain.nativeCurrency.symbol.slice(0, 3)}
+                <div>
+                  <p className="font-medium">{chain.name}</p>
+                  <p className="text-sm text-muted-foreground">{chain.nativeCurrency.symbol}</p>
                 </div>
-                <span className="font-medium">{chain.name}</span>
+                <span className="rounded-md bg-primary/10 px-2 py-1 text-xs text-primary">
+                  {chain.isEvm ? 'EVM' : 'SVM'}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-24 px-4">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">FAQ</h2>
-          <div className="space-y-4">
-            {FAQ.map((item) => (
-              <div key={item.q} className="glass rounded-xl p-6">
-                <h3 className="font-semibold mb-2">{item.q}</h3>
-                <p className="text-muted-foreground text-sm">{item.a}</p>
-              </div>
-            ))}
+      <section className="px-4 py-20">
+        <div className="container mx-auto grid gap-10 lg:grid-cols-2">
+          <div>
+            <p className="text-sm font-medium text-primary">Roadmap</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-normal">Honest delivery status</h2>
+            <div className="mt-6 space-y-3">
+              {ROADMAP.map((item, index) => (
+                <div
+                  key={item}
+                  className="flex gap-3 rounded-lg border border-border/70 bg-card/60 p-4"
+                >
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary/10 text-sm text-primary">
+                    {index + 1}
+                  </span>
+                  <span className="text-sm text-muted-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="py-24 px-4">
-        <div className="container mx-auto">
-          <div className="glass rounded-2xl p-12 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-purple-500/10" />
-            <div className="relative">
-              <h2 className="text-3xl font-bold mb-4">Ready to analyze your wallet?</h2>
-              <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-                Get instant insights into your on-chain activity, portfolio, and airdrop eligibility.
-              </p>
-              <Link href="/dashboard">
-                <Button size="lg" className="gap-2">
-                  Launch Dashboard <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
+          <div>
+            <p className="text-sm font-medium text-primary">FAQ</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-normal">What users should know</h2>
+            <div className="mt-6 space-y-3">
+              {FAQ.map((item) => (
+                <div key={item.q} className="rounded-lg border border-border/70 bg-card/60 p-5">
+                  <h3 className="font-medium">{item.q}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border/40 py-12 px-4">
-        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            &copy; 2026 Web3 Intelligence Platform. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <Link href="/docs" className="hover:text-foreground transition-colors">Documentation</Link>
-            <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
-            <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>
+      <footer className="border-t border-border/60 px-4 py-10">
+        <div className="container mx-auto flex flex-col justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
+          <p>Web3 Intelligence Platform v0.1.0</p>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/dashboard" className="hover:text-foreground">
+              Dashboard
+            </Link>
+            <Link href="/portfolio" className="hover:text-foreground">
+              Portfolio
+            </Link>
+            <Link href="/risk" className="hover:text-foreground">
+              Risk
+            </Link>
+            <Link href="/settings" className="hover:text-foreground">
+              Settings
+            </Link>
           </div>
         </div>
       </footer>

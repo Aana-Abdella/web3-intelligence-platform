@@ -1,0 +1,16 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="900" fill="#07090f"/>
+  <text x="80" y="104" font-family="Inter, Arial" font-size="44" font-weight="800" fill="#f8fafc">Dark Mode</text>
+  <text x="80" y="148" font-family="Inter, Arial" font-size="22" fill="#94a3b8">Concept Preview - high contrast dashboard theme with cyan, green, amber, and rose states</text>
+  <rect x="120" y="220" width="1200" height="540" rx="18" fill="#0f141d" stroke="#263244"/>
+  <rect x="168" y="280" width="252" height="160" rx="14" fill="#111827" stroke="#263244"/>
+  <rect x="458" y="280" width="252" height="160" rx="14" fill="#111827" stroke="#263244"/>
+  <rect x="748" y="280" width="252" height="160" rx="14" fill="#111827" stroke="#263244"/>
+  <rect x="1038" y="280" width="220" height="160" rx="14" fill="#111827" stroke="#263244"/>
+  <rect x="168" y="508" width="680" height="160" rx="14" fill="#111827" stroke="#263244"/>
+  <rect x="888" y="508" width="370" height="160" rx="14" fill="#111827" stroke="#263244"/>
+  <circle cx="294" cy="360" r="36" fill="#22d3ee"/>
+  <circle cx="584" cy="360" r="36" fill="#34d399"/>
+  <circle cx="874" cy="360" r="36" fill="#f59e0b"/>
+  <circle cx="1148" cy="360" r="36" fill="#f43f5e"/>
+</svg>

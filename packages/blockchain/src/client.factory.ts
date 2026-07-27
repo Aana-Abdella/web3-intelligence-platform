@@ -1,14 +1,6 @@
 import { ChainId } from '@web3-intelligence/shared';
 import { createPublicClient, http, type PublicClient, type Chain } from 'viem';
-import {
-  mainnet,
-  base,
-  arbitrum,
-  optimism,
-  polygon,
-  bsc,
-  avalanche,
-} from 'viem/chains';
+import { mainnet, base, arbitrum, optimism, polygon, bsc, avalanche } from 'viem/chains';
 
 /** Chain configuration with RPC URL */
 export interface ChainConfig {
@@ -105,10 +97,7 @@ export class BlockchainClientFactory {
    * Gets the first block timestamp for wallet age calculation.
    * Uses binary search approximation via transaction history.
    */
-  async getFirstActivityTimestamp(
-    chainId: ChainId,
-    address: `0x${string}`,
-  ): Promise<Date | null> {
+  async getFirstActivityTimestamp(chainId: ChainId, address: `0x${string}`): Promise<Date | null> {
     const client = this.getClient(chainId);
     const txCount = await client.getTransactionCount({ address });
 

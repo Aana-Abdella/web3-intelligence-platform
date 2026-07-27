@@ -14,10 +14,16 @@ interface WalletSearchBarProps {
   defaultValue?: string;
   size?: 'default' | 'large';
   autoFocus?: boolean;
+  onSearch?: (address: string) => void;
 }
 
 /** Wallet address search bar with validation */
-export function WalletSearchBar({ defaultValue = '', size = 'default', autoFocus }: WalletSearchBarProps) {
+export function WalletSearchBar({
+  defaultValue = '',
+  size = 'default',
+  autoFocus,
+  onSearch,
+}: WalletSearchBarProps) {
   const [address, setAddress] = useState(defaultValue);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -44,7 +50,11 @@ export function WalletSearchBar({ defaultValue = '', size = 'default', autoFocus
       searchedAt: new Date(),
     });
 
-    router.push(`/wallet/${trimmed}`);
+    if (onSearch) {
+      onSearch(trimmed);
+    } else {
+      router.push(`/wallet/${trimmed}`);
+    }
     setLoading(false);
   };
 
@@ -55,7 +65,10 @@ export function WalletSearchBar({ defaultValue = '', size = 'default', autoFocus
           <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             value={address}
-            onChange={(e) => { setAddress(e.target.value); setError(''); }}
+            onChange={(e) => {
+              setAddress(e.target.value);
+              setError('');
+            }}
             onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
             placeholder="Enter wallet address (0x... or Solana)"
             className={cn(size === 'large' ? 'h-14 pl-10 text-base' : 'pl-10')}
@@ -68,7 +81,12 @@ export function WalletSearchBar({ defaultValue = '', size = 'default', autoFocus
           size={size === 'large' ? 'lg' : 'default'}
           className={size === 'large' ? 'h-14 px-8' : ''}
         >
-          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Analyze'}
+          {loading ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            <SearchIcon className="h-4 w-4" />
+          )}
+          <span className="hidden sm:inline">Analyze</span>
         </Button>
       </div>
       {error && <p className="text-destructive text-sm mt-2">{error}</p>}

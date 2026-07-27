@@ -1,0 +1,19 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="900" fill="#07090f"/>
+  <text x="80" y="104" font-family="Inter, Arial" font-size="44" font-weight="800" fill="#f8fafc">Wallet Search</text>
+  <text x="80" y="148" font-family="Inter, Arial" font-size="22" fill="#94a3b8">Concept Preview - EVM and Solana validation with read-only analysis</text>
+  <rect x="180" y="260" width="900" height="92" rx="16" fill="#0f141d" stroke="#263244"/>
+  <circle cx="230" cy="306" r="16" stroke="#22d3ee" stroke-width="5"/>
+  <path d="M242 318L260 336" stroke="#22d3ee" stroke-width="5" stroke-linecap="round"/>
+  <text x="292" y="315" font-family="JetBrains Mono, monospace" font-size="22" fill="#64748b">0xd8da6bf26964af9d7eed9e03ae44754f960fc3f6</text>
+  <rect x="1104" y="260" width="156" height="92" rx="16" fill="#22d3ee"/>
+  <text x="1182" y="315" text-anchor="middle" font-family="Inter, Arial" font-size="22" font-weight="700" fill="#071014">Analyze</text>
+  <rect x="180" y="430" width="500" height="250" rx="16" fill="#0f141d" stroke="#263244"/>
+  <rect x="760" y="430" width="500" height="250" rx="16" fill="#0f141d" stroke="#263244"/>
+  <text x="230" y="500" font-family="Inter, Arial" font-size="28" font-weight="700" fill="#f8fafc">Search pipeline</text>
+  <text x="810" y="500" font-family="Inter, Arial" font-size="28" font-weight="700" fill="#f8fafc">Returned metrics</text>
+  <rect x="230" y="552" width="310" height="18" rx="6" fill="#22d3ee"/>
+  <rect x="230" y="606" width="250" height="18" rx="6" fill="#34d399"/>
+  <rect x="810" y="552" width="300" height="18" rx="6" fill="#f59e0b"/>
+  <rect x="810" y="606" width="220" height="18" rx="6" fill="#f43f5e"/>
+</svg>

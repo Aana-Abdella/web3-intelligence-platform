@@ -1,0 +1,24 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="640" fill="#07090f"/>
+  <path d="M0 96H1280M0 192H1280M0 288H1280M0 384H1280M0 480H1280M0 576H1280M160 0V640M320 0V640M480 0V640M640 0V640M800 0V640M960 0V640M1120 0V640" stroke="#1e293b" stroke-opacity=".45"/>
+  <rect x="88" y="84" width="1104" height="472" rx="18" fill="#0f141d" stroke="#263244"/>
+  <rect x="128" y="124" width="72" height="72" rx="14" fill="#123b3b" stroke="#22d3ee" stroke-opacity=".45"/>
+  <text x="164" y="169" text-anchor="middle" font-family="Inter, Arial" font-size="24" font-weight="700" fill="#22d3ee">W3</text>
+  <text x="128" y="258" font-family="Inter, Arial" font-size="72" font-weight="800" fill="#f8fafc">Web3 Intelligence</text>
+  <text x="128" y="322" font-family="Inter, Arial" font-size="34" fill="#94a3b8">Wallet analytics, portfolio tracking, airdrop research, and risk analysis</text>
+  <rect x="128" y="386" width="174" height="54" rx="10" fill="#22d3ee"/>
+  <text x="215" y="421" text-anchor="middle" font-family="Inter, Arial" font-size="18" font-weight="700" fill="#071014">Next.js</text>
+  <rect x="322" y="386" width="166" height="54" rx="10" fill="#34d399"/>
+  <text x="405" y="421" text-anchor="middle" font-family="Inter, Arial" font-size="18" font-weight="700" fill="#071014">NestJS</text>
+  <rect x="508" y="386" width="192" height="54" rx="10" fill="#f59e0b"/>
+  <text x="604" y="421" text-anchor="middle" font-family="Inter, Arial" font-size="18" font-weight="700" fill="#140b02">PostgreSQL</text>
+  <rect x="720" y="386" width="148" height="54" rx="10" fill="#f43f5e"/>
+  <text x="794" y="421" text-anchor="middle" font-family="Inter, Arial" font-size="18" font-weight="700" fill="#fff1f2">Redis</text>
+  <rect x="824" y="136" width="288" height="268" rx="14" fill="#07090f" stroke="#263244"/>
+  <rect x="856" y="176" width="224" height="22" rx="5" fill="#22d3ee" fill-opacity=".9"/>
+  <rect x="856" y="224" width="152" height="18" rx="5" fill="#34d399" fill-opacity=".9"/>
+  <rect x="856" y="268" width="190" height="18" rx="5" fill="#f59e0b" fill-opacity=".9"/>
+  <rect x="856" y="312" width="118" height="18" rx="5" fill="#f43f5e" fill-opacity=".9"/>
+  <circle cx="1080" cy="424" r="64" fill="#22d3ee" fill-opacity=".12" stroke="#22d3ee" stroke-opacity=".55"/>
+  <text x="1080" y="434" text-anchor="middle" font-family="Inter, Arial" font-size="28" font-weight="800" fill="#22d3ee">87</text>
+</svg>

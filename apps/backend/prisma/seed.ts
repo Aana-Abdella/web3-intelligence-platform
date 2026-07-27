@@ -47,15 +47,36 @@ async function main() {
       level: 'excellent',
       factors: [
         { name: 'Wallet Age', score: 100, maxScore: 100, weight: 0.15, description: '3200 days' },
-        { name: 'Transaction Count', score: 100, maxScore: 100, weight: 0.1, description: '2847 txs' },
-        { name: 'Bridge Usage', score: 85, maxScore: 100, weight: 0.15, description: 'Active bridge user' },
-        { name: 'Layer 2 Usage', score: 90, maxScore: 100, weight: 0.15, description: 'Heavy L2 activity' },
-        { name: 'DeFi Activity', score: 95, maxScore: 100, weight: 0.15, description: 'Extensive DeFi usage' },
+        {
+          name: 'Transaction Count',
+          score: 100,
+          maxScore: 100,
+          weight: 0.1,
+          description: '2847 txs',
+        },
+        {
+          name: 'Bridge Usage',
+          score: 85,
+          maxScore: 100,
+          weight: 0.15,
+          description: 'Active bridge user',
+        },
+        {
+          name: 'Layer 2 Usage',
+          score: 90,
+          maxScore: 100,
+          weight: 0.15,
+          description: 'Heavy L2 activity',
+        },
+        {
+          name: 'DeFi Activity',
+          score: 95,
+          maxScore: 100,
+          weight: 0.15,
+          description: 'Extensive DeFi usage',
+        },
       ],
-      suggestions: [
-        'Maintain current activity levels',
-        'Continue exploring new L2 ecosystems',
-      ],
+      suggestions: ['Maintain current activity levels', 'Continue exploring new L2 ecosystems'],
       potentialCampaigns: [
         {
           name: 'LayerZero',

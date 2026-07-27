@@ -42,7 +42,7 @@ export class RedisService implements OnModuleDestroy {
   async set(key: string, value: unknown, ttlSeconds: number): Promise<void> {
     try {
       await this.client.setex(key, ttlSeconds, JSON.stringify(value));
-    } catch (err) {
+    } catch {
       this.logger.warn(`Cache set failed for key ${key}`);
     }
   }

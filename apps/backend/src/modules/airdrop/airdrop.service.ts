@@ -1,5 +1,11 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
-import { ChainId, CACHE_TTL, detectChain, isValidWalletAddress, normalizeAddress } from '@web3-intelligence/shared';
+import {
+  ChainId,
+  CACHE_TTL,
+  detectChain,
+  isValidWalletAddress,
+  normalizeAddress,
+} from '@web3-intelligence/shared';
 import { getAirdropEligibilityService } from '@web3-intelligence/blockchain';
 import { RedisService } from '@/infrastructure/cache/redis.service';
 import type { AirdropEligibility } from '@web3-intelligence/shared';

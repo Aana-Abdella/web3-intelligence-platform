@@ -1,0 +1,30 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      frontend:
+        patterns:
+          - next
+          - react
+          - react-dom
+          - "@rainbow-me/*"
+          - wagmi
+          - viem
+      backend:
+        patterns:
+          - "@nestjs/*"
+          - "@prisma/*"
+          - prisma
+      tooling:
+        patterns:
+          - typescript
+          - turbo
+          - prettier
+          - eslint
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

@@ -15,6 +15,7 @@ GET /auth/nonce/:address
 ```
 
 **Response:**
+
 ```json
 {
   "nonce": "a1b2c3d4...",
@@ -35,6 +36,7 @@ Content-Type: application/json
 ```
 
 **Response:**
+
 ```json
 {
   "accessToken": "eyJhbG...",
@@ -54,11 +56,11 @@ Content-Type: application/json
 GET /wallets/search?address=0x...&chainId=1&refresh=false
 ```
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| address | string | Yes | Wallet address (EVM or Solana) |
-| chainId | number | No | Chain ID (auto-detected if omitted) |
-| refresh | boolean | No | Bypass cache |
+| Parameter | Type    | Required | Description                         |
+| --------- | ------- | -------- | ----------------------------------- |
+| address   | string  | Yes      | Wallet address (EVM or Solana)      |
+| chainId   | number  | No       | Chain ID (auto-detected if omitted) |
+| refresh   | boolean | No       | Bypass cache                        |
 
 **Response:** `WalletOverview` object
 
@@ -87,6 +89,7 @@ GET /portfolio?address=0x...&chainId=1
 ```
 
 **Response:**
+
 ```json
 {
   "totalValueUsd": 850000,
@@ -107,6 +110,7 @@ GET /airdrop/eligibility?address=0x...
 ```
 
 **Response:**
+
 ```json
 {
   "score": 72,
@@ -139,6 +143,7 @@ GET /health
 ```
 
 **Response:**
+
 ```json
 {
   "status": "healthy",
@@ -174,6 +179,6 @@ All errors follow this format:
 Endpoints returning lists support:
 
 | Parameter | Default | Max |
-|-----------|---------|-----|
-| page | 1 | — |
-| limit | 20 | 100 |
+| --------- | ------- | --- |
+| page      | 1       | —   |
+| limit     | 20      | 100 |

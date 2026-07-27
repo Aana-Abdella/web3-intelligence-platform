@@ -91,12 +91,12 @@ modules/wallet/
 
 ## Caching Strategy
 
-| Data Type | TTL | Invalidation |
-|-----------|-----|-------------|
-| Wallet Overview | 5 min | On refresh request |
-| Portfolio | 2 min | On new transaction |
-| Airdrop Analysis | 10 min | Manual refresh |
-| Risk Analysis | 5 min | Manual refresh |
+| Data Type        | TTL    | Invalidation       |
+| ---------------- | ------ | ------------------ |
+| Wallet Overview  | 5 min  | On refresh request |
+| Portfolio        | 2 min  | On new transaction |
+| Airdrop Analysis | 10 min | Manual refresh     |
+| Risk Analysis    | 5 min  | Manual refresh     |
 
 ## Security Layers
 

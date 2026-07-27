@@ -3,7 +3,17 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { Search, LayoutDashboard, Shield, Gift, BarChart3, Menu, X } from 'lucide-react';
+import {
+  Search,
+  LayoutDashboard,
+  Shield,
+  Gift,
+  BarChart3,
+  Menu,
+  X,
+  PieChart,
+  Settings,
+} from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -11,9 +21,11 @@ import { Button } from '@/components/ui/button';
 const NAV_ITEMS = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/search', label: 'Search', icon: Search },
+  { href: '/portfolio', label: 'Portfolio', icon: PieChart },
   { href: '/airdrop', label: 'Airdrop', icon: Gift },
   { href: '/risk', label: 'Risk', icon: Shield },
   { href: '/analytics', label: 'Analytics', icon: BarChart3 },
+  { href: '/settings', label: 'Settings', icon: Settings },
 ];
 
 /** Main navigation header with wallet connect */
@@ -26,8 +38,8 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full glass border-b border-border/40">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center">
-            <span className="text-sm font-bold text-white">W3</span>
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-primary/30 bg-primary/15">
+            <span className="text-sm font-bold text-primary">W3</span>
           </div>
           <span className="font-semibold text-lg hidden sm:block">
             Web3 <span className="gradient-text">Intelligence</span>
@@ -35,7 +47,7 @@ export function Navbar() {
         </Link>
 
         {!isLanding && (
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1">
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
               return (
@@ -60,7 +72,9 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           {isLanding && (
             <Link href="/dashboard" className="hidden sm:block">
-              <Button variant="ghost" size="sm">Launch App</Button>
+              <Button variant="ghost" size="sm">
+                Launch App
+              </Button>
             </Link>
           )}
           <ConnectButton showBalance={false} chainStatus="icon" accountStatus="avatar" />
@@ -68,7 +82,7 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -78,7 +92,7 @@ export function Navbar() {
       </div>
 
       {mobileOpen && !isLanding && (
-        <nav className="md:hidden border-t border-border/40 p-4 space-y-1">
+        <nav className="lg:hidden border-t border-border/40 p-4 space-y-1">
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             return (

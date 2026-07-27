@@ -1,0 +1,14 @@
+<svg width="430" height="932" viewBox="0 0 430 932" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="430" height="932" rx="34" fill="#07090f"/>
+  <rect x="24" y="42" width="382" height="64" rx="14" fill="#0f141d" stroke="#263244"/>
+  <text x="46" y="82" font-family="Inter, Arial" font-size="18" font-weight="700" fill="#f8fafc">Mobile UI - Concept Preview</text>
+  <rect x="24" y="140" width="382" height="70" rx="14" fill="#0f141d" stroke="#263244"/>
+  <rect x="24" y="238" width="178" height="132" rx="14" fill="#0f141d" stroke="#263244"/>
+  <rect x="228" y="238" width="178" height="132" rx="14" fill="#0f141d" stroke="#263244"/>
+  <rect x="24" y="398" width="382" height="210" rx="14" fill="#0f141d" stroke="#263244"/>
+  <path d="M54 548C98 502 128 514 162 474C196 434 246 462 286 414C316 378 350 388 380 362" stroke="#22d3ee" stroke-width="5" stroke-linecap="round"/>
+  <rect x="24" y="636" width="382" height="210" rx="14" fill="#0f141d" stroke="#263244"/>
+  <rect x="54" y="690" width="260" height="16" rx="6" fill="#22d3ee"/>
+  <rect x="54" y="742" width="210" height="16" rx="6" fill="#34d399"/>
+  <rect x="54" y="794" width="285" height="16" rx="6" fill="#f59e0b"/>
+</svg>

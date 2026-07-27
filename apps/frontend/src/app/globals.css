@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 222 47% 5%;
+    --background: 220 24% 6%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 8%;
+    --card: 220 18% 9%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 8%;
+    --popover: 220 18% 9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 5%;
-    --secondary: 217 33% 17%;
+    --primary: 174 72% 48%;
+    --primary-foreground: 220 24% 6%;
+    --secondary: 220 16% 16%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217 33% 17%;
+    --muted: 220 16% 16%;
     --muted-foreground: 215 20% 65%;
-    --accent: 217 33% 17%;
+    --accent: 220 16% 16%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 217 91% 60%;
-    --radius: 0.75rem;
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 174 72% 48%;
+    --radius: 0.5rem;
     --success: 142 76% 36%;
     --warning: 38 92% 50%;
-    --chart-1: 217 91% 60%;
-    --chart-2: 160 84% 39%;
+    --chart-1: 188 86% 53%;
+    --chart-2: 142 69% 45%;
     --chart-3: 38 92% 50%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --chart-4: 346 77% 55%;
+    --chart-5: 263 70% 68%;
   }
 }
 
@@ -44,26 +44,36 @@
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+    @apply bg-card/70 backdrop-blur-xl border border-border/70;
   }
   .glass-hover {
     @apply glass hover:bg-card/80 hover:border-primary/30 transition-all duration-300;
   }
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-blue-400 to-purple-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-emerald-300 to-amber-300 bg-clip-text text-transparent;
   }
   .gradient-border {
-    @apply relative before:absolute before:inset-0 before:rounded-[inherit] before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:to-purple-500/50 before:-z-10;
+    @apply relative before:absolute before:inset-0 before:rounded-[inherit] before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:to-amber-400/50 before:-z-10;
+  }
+  .surface-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.45) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.45) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(to bottom, black, transparent 90%);
   }
 }
 
 /* RainbowKit overrides for dark theme */
 [data-rk] {
-  --rk-colors-accentColor: hsl(217 91% 60%);
-  --rk-colors-modalBackground: hsl(222 47% 8%);
-  --rk-colors-modalBorder: hsl(217 33% 17%);
+  --rk-colors-accentColor: hsl(174 72% 48%);
+  --rk-colors-modalBackground: hsl(220 18% 9%);
+  --rk-colors-modalBorder: hsl(220 14% 18%);
 }

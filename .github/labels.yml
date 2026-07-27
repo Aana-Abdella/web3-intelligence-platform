@@ -1,0 +1,27 @@
+- name: good first issue
+  color: "0e8a16"
+  description: Good for first-time contributors
+- name: bug
+  color: "d73a4a"
+  description: Something is not working correctly
+- name: feature
+  color: "a2eeef"
+  description: New product or engineering capability
+- name: documentation
+  color: "0075ca"
+  description: Documentation-only change
+- name: frontend
+  color: "c5def5"
+  description: Next.js application work
+- name: backend
+  color: "5319e7"
+  description: NestJS API work
+- name: blockchain
+  color: "fbca04"
+  description: Chain integration or RPC behavior
+- name: security
+  color: "ee0701"
+  description: Security-sensitive work
+- name: concept-preview
+  color: "bfd4f2"
+  description: UI that is not fully backed by production APIs
