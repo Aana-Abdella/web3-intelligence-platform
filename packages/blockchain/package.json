@@ -1,0 +1,26 @@
+{
+  "name": "@web3-intelligence/blockchain",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@web3-intelligence/shared": "workspace:*",
+    "viem": "^2.21.54"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}

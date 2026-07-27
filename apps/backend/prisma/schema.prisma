@@ -1,0 +1,262 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ─────────────────────────────────────────────────────
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum ChainSlug {
+  ETHEREUM
+  BASE
+  ARBITRUM
+  OPTIMISM
+  POLYGON
+  BNB
+  AVALANCHE
+  SOLANA
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum AnalysisStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+// ─── User & Auth ───────────────────────────────────────────────
+
+model User {
+  id            String   @id @default(cuid())
+  walletAddress String   @unique @map("wallet_address")
+  ensName       String?  @map("ens_name")
+  email         String?  @unique
+  role          UserRole @default(USER)
+  nonce         String?
+  lastLoginAt   DateTime? @map("last_login_at")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  bookmarks     WalletBookmark[]
+  recentSearches RecentSearch[]
+  apiKeys       ApiKey[]
+
+  @@index([walletAddress])
+  @@map("users")
+}
+
+model ApiKey {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  name      String
+  keyHash   String   @unique @map("key_hash")
+  lastUsedAt DateTime? @map("last_used_at")
+  expiresAt DateTime? @map("expires_at")
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("api_keys")
+}
+
+// ─── Wallet Data ───────────────────────────────────────────────
+
+model Wallet {
+  id              String    @id @default(cuid())
+  address         String
+  chain           ChainSlug
+  ensName         String?   @map("ens_name")
+  portfolioValueUsd Float   @default(0) @map("portfolio_value_usd")
+  walletAgeDays   Int       @default(0) @map("wallet_age_days")
+  tokenCount      Int       @default(0) @map("token_count")
+  nftCount        Int       @default(0) @map("nft_count")
+  riskScore       Float     @default(0) @map("risk_score")
+  reputationScore Float     @default(0) @map("reputation_score")
+  transactionCount Int      @default(0) @map("transaction_count")
+  totalGasSpentUsd Float    @default(0) @map("total_gas_spent_usd")
+  firstActivityAt DateTime? @map("first_activity_at")
+  lastActivityAt  DateTime? @map("last_activity_at")
+  labels          String[]  @default([])
+  isWhale         Boolean   @default(false) @map("is_whale")
+  lastSyncedAt    DateTime? @map("last_synced_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  bookmarks       WalletBookmark[]
+  riskAnalyses    RiskAnalysis[]
+  airdropAnalyses AirdropAnalysis[]
+  tokenBalances   TokenBalance[]
+  transactions    Transaction[]
+
+  @@unique([address, chain])
+  @@index([address])
+  @@index([chain])
+  @@index([portfolioValueUsd])
+  @@index([lastSyncedAt])
+  @@map("wallets")
+}
+
+model WalletBookmark {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  walletId  String    @map("wallet_id")
+  label     String?
+  notes     String?
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  wallet Wallet @relation(fields: [walletId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, walletId])
+  @@index([userId])
+  @@map("wallet_bookmarks")
+}
+
+model RecentSearch {
+  id        String    @id @default(cuid())
+  userId    String?   @map("user_id")
+  address   String
+  chain     ChainSlug
+  searchedAt DateTime @default(now()) @map("searched_at")
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId, searchedAt])
+  @@index([address])
+  @@map("recent_searches")
+}
+
+// ─── Token & Portfolio ─────────────────────────────────────────
+
+model TokenBalance {
+  id              String  @id @default(cuid())
+  walletId        String  @map("wallet_id")
+  contractAddress String? @map("contract_address")
+  symbol          String
+  name            String
+  decimals        Int
+  balance         String
+  balanceFormatted Float  @map("balance_formatted")
+  priceUsd        Float?  @map("price_usd")
+  valueUsd        Float?  @map("value_usd")
+  logoUrl         String? @map("logo_url")
+  chain           ChainSlug
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  wallet Wallet @relation(fields: [walletId], references: [id], onDelete: Cascade)
+
+  @@unique([walletId, contractAddress, chain])
+  @@index([walletId])
+  @@map("token_balances")
+}
+
+// ─── Transactions ────────────────────────────────────────────────
+
+model Transaction {
+  id            String   @id @default(cuid())
+  walletId      String   @map("wallet_id")
+  hash          String
+  fromAddress   String   @map("from_address")
+  toAddress     String?  @map("to_address")
+  value         String
+  valueFormatted Float   @map("value_formatted")
+  blockNumber   BigInt   @map("block_number")
+  timestamp     DateTime
+  status        String   @default("success")
+  gasUsed       String   @map("gas_used")
+  gasPrice      String   @map("gas_price")
+  gasCostUsd    Float?   @map("gas_cost_usd")
+  method        String?
+  chain         ChainSlug
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  wallet Wallet @relation(fields: [walletId], references: [id], onDelete: Cascade)
+
+  @@unique([hash, chain])
+  @@index([walletId, timestamp])
+  @@index([hash])
+  @@map("transactions")
+}
+
+// ─── Risk Analysis ─────────────────────────────────────────────
+
+model RiskAnalysis {
+  id          String        @id @default(cuid())
+  walletId    String        @map("wallet_id")
+  score       Float
+  level       RiskLevel
+  flags       Json          @default("[]")
+  recommendations String[]  @default([])
+  approvalRisks Json        @default("[]") @map("approval_risks")
+  status      AnalysisStatus @default(PENDING)
+  analyzedAt  DateTime      @default(now()) @map("analyzed_at")
+
+  wallet Wallet @relation(fields: [walletId], references: [id], onDelete: Cascade)
+
+  @@index([walletId, analyzedAt])
+  @@map("risk_analyses")
+}
+
+// ─── Airdrop Analysis ──────────────────────────────────────────
+
+model AirdropAnalysis {
+  id                String         @id @default(cuid())
+  walletId          String         @map("wallet_id")
+  score             Float
+  level             String
+  factors           Json           @default("[]")
+  suggestions       String[]       @default([])
+  potentialCampaigns Json          @default("[]") @map("potential_campaigns")
+  status            AnalysisStatus @default(PENDING)
+  analyzedAt        DateTime       @default(now()) @map("analyzed_at")
+
+  wallet Wallet @relation(fields: [walletId], references: [id], onDelete: Cascade)
+
+  @@index([walletId, analyzedAt])
+  @@map("airdrop_analyses")
+}
+
+// ─── Cache & Jobs ──────────────────────────────────────────────
+
+model CacheEntry {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([expiresAt])
+  @@map("cache_entries")
+}
+
+model JobLog {
+  id        String   @id @default(cuid())
+  jobName   String   @map("job_name")
+  jobId     String   @map("job_id")
+  status    String
+  payload   Json?
+  result    Json?
+  error     String?
+  startedAt DateTime @default(now()) @map("started_at")
+  completedAt DateTime? @map("completed_at")
+
+  @@index([jobName, startedAt])
+  @@map("job_logs")
+}

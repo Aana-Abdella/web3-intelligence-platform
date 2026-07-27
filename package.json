@@ -1,0 +1,32 @@
+{
+  "name": "web3-intelligence",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Production-ready Web3 Intelligence Platform for wallet analytics, portfolio tracking, and airdrop eligibility",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "test:cov": "turbo run test:cov",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
+    "db:generate": "pnpm --filter @web3-intelligence/backend exec prisma generate",
+    "db:migrate": "pnpm --filter @web3-intelligence/backend exec prisma migrate dev",
+    "db:push": "pnpm --filter @web3-intelligence/backend exec prisma db push",
+    "db:seed": "pnpm --filter @web3-intelligence/backend exec prisma db seed",
+    "docker:up": "docker compose -f docker/docker-compose.yml up -d",
+    "docker:down": "docker compose -f docker/docker-compose.yml down",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "prettier": "^3.4.2",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}
