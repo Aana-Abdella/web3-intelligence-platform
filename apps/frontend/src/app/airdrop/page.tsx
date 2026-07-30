@@ -6,6 +6,7 @@ import { AlertTriangle, CheckCircle2, Gift, Lightbulb, Target } from 'lucide-rea
 import { WalletSearchBar } from '@/components/wallet/wallet-search-bar';
 import { airdropApi } from '@/lib/api';
 import { Progress } from '@/components/ui/progress';
+import { FeaturedTasks } from '@/components/featured-tasks';
 import type { AirdropEligibility } from '@web3-intelligence/shared';
 import { AIRDROP_FACTORS, AIRDROP_OPPORTUNITIES, HISTORICAL_AIRDROPS } from '@/lib/demo-data';
 
@@ -224,6 +225,10 @@ export default function AirdropPage() {
             </div>
           </section>
         </aside>
+      </div>
+
+      <div className="mt-12">
+        <FeaturedTasks />
       </div>
     </div>
   );

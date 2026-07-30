@@ -15,6 +15,7 @@ import {
 import { WalletSearchBar } from '@/components/wallet/wallet-search-bar';
 import { useAppStore } from '@/store/app.store';
 import { formatCompact, truncateAddress } from '@web3-intelligence/shared';
+import { FeaturedTasks } from '@/components/featured-tasks';
 import {
   DASHBOARD_OVERVIEW,
   PROTOCOL_USAGE,
@@ -94,6 +95,10 @@ export default function DashboardPage() {
           </Link>
         ))}
       </section>
+
+      <div className="mb-12">
+        <FeaturedTasks />
+      </div>
 
       <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
         <section className="rounded-lg border border-border/70 bg-card/60">

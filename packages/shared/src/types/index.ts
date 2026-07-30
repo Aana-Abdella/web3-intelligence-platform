@@ -254,3 +254,136 @@ export interface RecentSearch {
   chainId: ChainId;
   searchedAt: Date;
 }
+
+/** Featured task category for airdrop eligibility actions */
+export type TaskCategory =
+  | 'bridge'
+  | 'dex'
+  | 'lending'
+  | 'nft'
+  | 'governance'
+  | 'staking'
+  | 'social';
+
+/** Task difficulty level */
+export type TaskDifficulty = 'easy' | 'medium' | 'hard';
+
+/** Task completion status */
+export type TaskStatus = 'not_started' | 'in_progress' | 'completed';
+
+/** Sort options for featured tasks */
+export type TaskSortOption =
+  | 'recommended'
+  | 'highest_reward'
+  | 'easiest'
+  | 'fastest'
+  | 'newest';
+
+/** Featured task for airdrop eligibility improvement */
+export interface FeaturedTask {
+  id: string;
+  title: string;
+  description: string;
+  protocol: string;
+  blockchain: string;
+  category: TaskCategory;
+  difficulty: TaskDifficulty;
+  estimatedTime: string;
+  estimatedEligibilityBoost: number;
+  status: TaskStatus;
+  progress: number;
+  rewardBadge: string;
+  icon: string;
+  tags: string[];
+  ctaLabel: string;
+  secondaryCtaLabel?: string;
+  guideUrl?: string;
+  isNew?: boolean;
+  createdAt: string;
+}
+
+/** Category progress for airdrop readiness */
+export interface CategoryProgress {
+  category: TaskCategory;
+  label: string;
+  progress: number;
+}
+
+/** Airdrop readiness overview */
+export interface AirdropReadiness {
+  overallScore: number;
+  level: 'low' | 'medium' | 'high' | 'excellent';
+  categoryBreakdown: CategoryProgress[];
+}
+
+/** Achievement for gamification */
+export interface Achievement {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  status: 'locked' | 'unlocked' | 'in_progress';
+  progress: number;
+  maxProgress: number;
+  unlockedAt?: string;
+  category: TaskCategory | 'general';
+}
+
+/** Daily rotating task */
+export interface DailyTask {
+  id: string;
+  title: string;
+  description: string;
+  category: TaskCategory | 'general';
+  reward: string;
+  progress: number;
+  target: number;
+  completed: boolean;
+}
+
+/** Weekly mission */
+export interface WeeklyMission {
+  id: string;
+  title: string;
+  description: string;
+  category: TaskCategory | 'general';
+  reward: string;
+  progress: number;
+  target: number;
+  deadline: string;
+  completed: boolean;
+}
+
+/** Trending airdrop campaign */
+export interface TrendingCampaign {
+  id: string;
+  project: string;
+  chain: string;
+  difficulty: TaskDifficulty;
+  estimatedOpportunity: string;
+  deadline?: string;
+  risk: 'low' | 'medium' | 'high';
+  popularity: number;
+  description: string;
+  url?: string;
+}
+
+/** Wallet activity profile for recommendations */
+export interface WalletActivityProfile {
+  transactionCount: number;
+  bridgeActivity: boolean;
+  lendingActivity: boolean;
+  nftActivity: boolean;
+  walletAgeDays: number;
+  dexActivity: boolean;
+  governanceActivity: boolean;
+  stakingActivity: boolean;
+}
+
+/** Personalized task recommendation */
+export interface TaskRecommendation {
+  taskId: string;
+  reason: string;
+  priority: 'high' | 'medium' | 'low';
+  isInformational?: boolean;
+}
