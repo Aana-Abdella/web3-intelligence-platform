@@ -95,7 +95,7 @@ export class WalletService {
    */
   async getRecentSearches(userId?: string) {
     const searches = await this.walletRepo.getRecentSearches(userId);
-    return searches.map((s) => ({
+    return searches.map((s: { address: string; chain: ChainSlug; searchedAt: Date }) => ({
       address: s.address,
       chainId: ChainId[s.chain as keyof typeof ChainId] ?? ChainId.ETHEREUM,
       searchedAt: s.searchedAt,
