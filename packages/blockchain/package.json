@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@web3-intelligence/shared": "workspace:*",
-    "viem": "^2.21.54"
+    "viem": "^2.56.0"
   },
   "devDependencies": {
     "typescript": "^5.7.2"
